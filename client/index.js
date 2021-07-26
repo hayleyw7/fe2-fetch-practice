@@ -5,6 +5,14 @@ console.log('so fetch!')
 // 2. Make a POST request to create a new instance of that resource, and log the result to the console.
 // 3. Rerun your previous GET fetch request to verify you added the new resource
 
+fetch("http://localhost:3001/api/v1/animals").then(response => response.json()).then(json => console.log(json)).catch(err => console.log('OPPPPPS!'));
+fetch("http://localhost:3001/api/v1/animals", {
+ method: "POST",
+ body: JSON.stringify({ id: 5, name: 'llama', diet: 'grass', fun_fact: 'they are beautiful creatures'}),
+ headers: {
+   "Content-Type": "application/json",
+ }
+}).then(response => response.json()).then(json => console.log(json)).catch(err => console.log('OPPPPPS!'));
 
 // Hook it up to the dom!
 // 4. On page load, fire off #1 from above and populate the section (.js-collection) with those items
